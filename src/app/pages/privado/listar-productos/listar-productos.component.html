@@ -1,0 +1,22 @@
+<div class="container" style="min-width: 60vw;">
+
+    <ol class="list-group list-group-numbered">
+        <li class="list-group-item d-flex justify-content-between align-items-start" 
+            style="cursor: pointer"
+            *ngFor="let producto of productos" 
+            (click)="eligiendoProducto(producto)">
+            <div class="ms-2 me-auto" >
+                <div class="fw-bold">{{producto.nombre}}</div>
+                
+                    <small>
+                        <b>
+                            {{producto.tipo_producto.tipo_producto}}
+                        </b>
+                    </small>
+                
+            </div>
+            <span class="badge bg-primary rounded-pill" style="font-weight: 400;">$ {{ producto.precio }}</span>
+        </li>
+    </ol>
+
+</div>

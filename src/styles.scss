@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+
+$btn-padding-x: 2rem;  // Aumenta el padding horizontal de los botones
+$navbar-dark-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+$btn-padding-y: .01em;
+$card-box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+$card-border-color: transparent;
+
+
+
+
+@import 'bootstrap/scss/bootstrap'; 
+
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}

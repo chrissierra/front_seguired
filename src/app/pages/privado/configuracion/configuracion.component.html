@@ -1,0 +1,35 @@
+
+<div class="container p-4 mb-4">
+    <div class="row">
+        <div class="col-12">
+            <ul class="nav nav-underline">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page"  (click)="subNavegar('EditarPasosProductivos')">Configuracion</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link"  (click)="subNavegar('miCuenta')">Mi cuenta</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link"  (click)="subNavegar('password')">Password</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" aria-disabled="true">Premium</a>
+                </li>
+              </ul>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="row"  *ngIf="subnavegacion['EditarPasosProductivos']">
+    <div class="col-12 d-flex justify-content-center">
+        <app-pasos></app-pasos>
+    </div>
+</div>
+
+<div class="row" *ngIf="subnavegacion['miCuenta']">
+  <div class="col-12">
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem aliquid et commodi nostrum velit ratione repellendus totam autem consequuntur iusto neque consectetur, minus delectus laborum maiores animi explicabo? Magni, inventore.
+  </div>
+</div>

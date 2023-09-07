@@ -1,0 +1,34 @@
+<div class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded " style="max-width: 80vw; min-width: 50vw; min-height: 60vh;">
+    <div class="card-body">
+        <h4 class="mb-4 text-center">
+            <b>PASOS PRODUCTIVOS</b>
+        </h4>
+        <h6  class="mb-4 text-center">
+            <span>
+                Ingresa los pasos o fases productivas para tu empresa
+            </span>
+        </h6>
+
+        <hr>
+        <div class="mb-4"></div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="mb-3">
+                    <label for="nombrePaso" class="form-label">
+                        <b>
+                            Nombre de la Fase
+                        </b>
+                    </label>
+                    <input name="nombrePaso" type="text" class="form-control" id="nombrePaso"  [(ngModel)]="pasos['nombrePaso']">              
+                </div>
+            </div>
+            <div class="mb-4"></div>
+            <div class="col-12 text-center">
+                <button (click)="ingresar()" class="btn btn-info" style="color: white">
+                    <b>Ingresar</b>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

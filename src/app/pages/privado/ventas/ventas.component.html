@@ -1,0 +1,33 @@
+
+<div class="container p-4 mb-4">
+    <div class="row">
+        <div class="col-12">
+            <ul class="nav nav-underline">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page"  (click)="subNavegar('nuevaVenta')">Nueva Venta</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link"  (click)="subNavegar('misVentas')">Mis Ventas</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link"  (click)="subNavegar('reporteVentas')">Reporte Ventas</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" aria-disabled="true">Premium</a>
+                </li>
+              </ul>
+        </div>
+    </div>
+</div>
+
+<div class="row"  *ngIf="subnavegacion['nuevaVenta']">
+    <div class="col-12 d-flex justify-content-center">
+        <app-nueva-venta></app-nueva-venta>
+    </div>
+</div>
+
+<div class="row" *ngIf="subnavegacion['misVentas']">
+  <div class="col-12 d-flex justify-content-center">
+    <app-listar-ventas></app-listar-ventas>
+  </div>
+</div>

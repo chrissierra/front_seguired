@@ -1,0 +1,38 @@
+<div class="container">
+    <small (click)="volver()" class="cursor-pointer">Volver</small>
+
+    <h6 class="text-center">DETALLES VENTA</h6>
+
+    <div class="row">
+        <div class="col-12">
+            
+            <div class="mb-3">
+                <label for="paso" class="form-label">
+                    <b>
+                        Ingresa Nuevo Paso:
+                    </b>
+                </label>
+                <ng2-completer name="paso" [inputClass]="'form-control'" [(ngModel)]="venta['pasoSeleccionadoEnCurso']" [datasource]="venta['pasos_estandar']" [minSearchLength]="0">                    
+                </ng2-completer>
+            </div>
+        </div>
+
+        <div class="col-12">
+            
+            <div class="mb-3">
+                <label for="paso" class="form-label">
+                    <b>
+                        Orden
+                    </b>
+                </label>
+                <input type="number" class="form-control" name="ordinalidad" [(ngModel)]="venta['ordinalidadPaso']" id="ordinalidad">
+            </div>
+        </div>
+
+
+        <div class="col-12">
+            <button class="btn btn-primary" (click)="ingresar()">Ingresar</button>
+        </div>
+    </div>
+
+</div>

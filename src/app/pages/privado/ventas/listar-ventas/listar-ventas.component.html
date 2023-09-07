@@ -1,0 +1,53 @@
+<div class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded " style="max-width: 80vw; min-width: 50vw; min-height: 60vh;" >
+    <div class="card-body" >
+        <h4 class="mb-4 text-center">
+            <b>VENTAS</b>
+        </h4>
+        <h6  class="mb-4 text-center">
+            <span>
+                Visualización ventas
+            </span>
+        </h6>
+
+        <hr>
+        <div class="mb-4"></div>
+
+        <div *ngIf="subnavegacion['listado']" class="row">
+            <!-- Listado -->
+            <ul class="list-group  mb-4">
+                <li class="list-group-item d-flex justify-content-between align-items-start flex-wrap cursor-pointer" 
+                    
+                    *ngFor="let venta of ventas" (click)="visualizar(venta)"> <!-- style="cursor: pointer" -->
+
+                    <div class="row" style="width: 100%;">
+                        <div class="col-8 mb-2">
+                            <div class="ms-2 me-auto" >
+                                <div class="fw-bold">Total {{venta.total |  currency:'CLP' }}</div>
+                                
+                                    <small>
+                                        <b>
+                                            {{venta.cliente.nombre}}
+                                        </b>
+                                    </small>
+                                
+                            </div>
+                            <span class="badge bg-primary rounded-pill" style="font-weight: 400;">activa</span>
+                        </div>
+                        <div class="col-4 d-flex flex-column">
+                            <b>Fecha Entrega </b>
+                            {{ venta?.entregas[0].fecha }}
+                        </div>
+                        
+                    </div>                 
+                </li>
+            </ul>
+
+            <!-- Lsitado -->
+        </div>
+
+        <div class="row" *ngIf="subnavegacion['unitaria']">
+            <app-unitaria [venta]="venta" (onVolver)="subNavegar('listado')"></app-unitaria>
+        </div>
+
+    </div>        
+</div>

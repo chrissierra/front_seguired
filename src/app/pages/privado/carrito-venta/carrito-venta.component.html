@@ -1,0 +1,71 @@
+<div class="container p-2">
+    <div class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded " 
+        [ngClass]="{'lateral' : lateral}"> <!--  style="min-height: 100vh;" -->
+        <div class="card-body">
+            <div class="header">
+                <h6 class="boton-cerrar" (click)="cerrar()" *ngIf="lateral">CERRAR</h6>
+                <h4 class="text-center" *ngIf="lateral">Carrito Venta</h4>
+            </div>
+            <hr *ngIf="lateral">
+            <!-- {{productosCarrito| json}} -->
+            <div class="contenedor-lista" [ngClass]="{'contenedor-lista_lateral' : lateral}" ><!-- style="height: 32vh" -->
+
+                <ul class="list-group  mb-4" [ngClass]="{'listado-productos' : lateral}">
+                    <li class="list-group-item d-flex justify-content-between align-items-start flex-wrap" 
+                    [ngClass]="{'puntero' : lateral}" 
+                        *ngFor="let producto of productosCarrito" > <!-- style="cursor: pointer" -->
+
+                        <div class="row" style="width: 100%;">
+                            <div class="col-8 mb-2">
+                                <div class="ms-2 me-auto" >
+                                    <div class="fw-bold">{{producto.nombre}}</div>
+                                    
+                                        <small>
+                                            <b>
+                                                {{producto.tipo_producto.tipo_producto}}
+                                            </b>
+                                        </small>
+                                    
+                                </div>
+                                <span class="badge bg-primary rounded-pill" style="font-weight: 400;">$ {{ producto.precio }}</span>
+                            </div>
+                            <div class="col-4">
+                                <b>Cantidad</b> {{producto.cantidad}}
+                            </div>
+                            <hr *ngIf="lateral">
+                            <div class="col-6" *ngIf="lateral">
+                                <button class="btn btn-primary" (click)="eliminar(producto)">Eliminar</button>
+                            </div>
+                            <div class="col-3" *ngIf="lateral">
+                                <button class="btn btn-info" (click)="modificarCantidad(producto, 'sumar')" style="color: white; font-weight: 800;">+</button>
+                            </div>
+                            <div class="col-3" *ngIf="lateral">
+                                <button class="btn btn-info" (click)="modificarCantidad(producto, 'restar')" style="color: white; font-weight: 800;">-</button>
+                            </div>
+                        </div>                 
+                    </li>
+                </ul>
+            </div>
+
+            <div class="row">
+                <div class="col-6 d-flex justify-content-end">
+                    <b>Cantidad: </b>
+                </div>
+                <div class="col-6 d-flex justify-content-end">
+                    {{qCarrito}}
+                </div>
+
+                <div class="col-6 d-flex justify-content-end">
+                    <b>Total: </b>
+                </div>
+                <div class="col-6 d-flex justify-content-end">
+                    {{totalCarrito |  currency:'CLP' }}
+                </div>
+            </div>
+            
+
+        </div>
+    
+    </div>
+
+</div>

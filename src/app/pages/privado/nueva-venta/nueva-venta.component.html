@@ -1,0 +1,89 @@
+<div class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded " style="max-width: 80vw; min-width: 50vw; min-height: 60vh;" *ngIf="vistaLista">
+    <div class="card-body" *ngIf="subnavegacion['paso1']">
+        <h4 class="text-center">Nueva Venta</h4>
+        <hr>
+        <form>
+            <div class="mb-3">
+                <label for="cliente" class="form-label">
+                    <b>
+                        Cliente
+                    </b>
+                </label>
+                <ng2-completer name="cliente" [inputClass]="'form-control'" class="" [(ngModel)]="venta['cliente']" [datasource]="venta['clientes']" [minSearchLength]="0"></ng2-completer>
+            </div>
+
+            <div class="mb-3">
+                <label for="fecha" class="form-label">
+                    <b>
+                        Fecha Entrega
+                    </b>
+                </label>
+                <input name="fecha" type="date" class="form-control" id="fecha"  [(ngModel)]="venta['fecha']">              
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">
+                    <b>
+                        Tipo Entrega
+                    </b>
+                </label>
+                <input name="entrega" type="text" class="form-control" id="entrega"  [(ngModel)]="venta['entrega']" >              
+            </div>
+
+
+            <div class="col-12 text-center">
+                <button (click)="avanzar('paso2')" type="submit" class="btn btn-secondary">
+                    <b>Avanzar</b>
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <div class="card-body" *ngIf="subnavegacion['paso2']">
+        <h6 class="pointer inline" (click)="avanzar('paso1')">Volver</h6>
+        <h6 class="pointer inline f-right" (click)="mostrarCarrito()">Carrito</h6>
+        <h4 class="text-center">Nueva Venta</h4>
+        <hr>
+       
+        <div class="row">
+            <app-listar-productos (onProductoSeleccionado)="onProductoSeleccionado($event)"></app-listar-productos>
+        </div>
+
+        <div class="row">
+            <div class="col-12 text-center">
+                <button (click)="avanzar('paso3')" type="submit" class="btn btn-primary">
+                    <b>Finalizar Venta</b>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body" *ngIf="subnavegacion['paso3']">
+        <h6 class="pointer" (click)="avanzar('paso2')">Volver</h6>
+        <h4 class="text-center">Finalizar Venta</h4>
+        <hr>
+       
+        <div class="row">
+            <app-finalizar-venta 
+            [cliente]="clientes['by_rut'][venta['cliente']]"
+            [carritoVenta]="carritoVenta"
+            [productos]="productosSeleccionados"
+            [venta]="venta">
+            </app-finalizar-venta>
+        </div>
+
+        <div class="row">
+            <div class="col-12 text-center">
+                <button (click)="ingresar()" type="submit" class="btn btn-primary">
+                    <b>Ingresar</b>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<div class="carrito-venta" [ngClass]="{'mostrar-carrito-venta' : mostrarCarritoVenta}">
+    <app-carrito-venta (onUpdateProductoSimplificado)="onUpdateProductoSimplificado($event)" (onEliminarItem)="onEliminarItem($event)" (onCerrar)="cerrarCarritoVenta($event)" [productos]="productosSeleccionados"></app-carrito-venta>
+</div>

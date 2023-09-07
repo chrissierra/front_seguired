@@ -1,0 +1,45 @@
+
+<div class="container p-4 mb-4">
+    <div class="row">
+        <div class="col-12">
+            <ul class="nav nav-underline">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" (click)="subNavegar('nuevoProducto')">Nuevo Producto</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link"  (click)="subNavegar('misProductos')">Mis Productos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link"  (click)="subNavegar('reporteProductos')">Reporte Productos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" aria-disabled="true">Premium</a>
+                </li>
+              </ul>
+        </div>
+    </div>
+</div>
+
+<div class="row" *ngIf="subnavegacion['nuevoProducto']">
+    <div class="col-12 d-flex justify-content-center">
+        <app-nuevo-producto></app-nuevo-producto>
+    </div>
+</div>
+
+<div class="row"  *ngIf="subnavegacion['misProductos']">
+  <b class="text-center mb-4">
+    Mis Productos
+  </b>
+  <div class="col-12 d-flex justify-content-center">
+      <app-listar-productos (onProductoSeleccionado)="onProductoSeleccionado($event)"></app-listar-productos>
+  </div>
+</div>
+
+<div class="row"  *ngIf="subnavegacion['productoUnitario']">
+  <b class="text-center mb-4">
+    Mis Productos
+  </b>
+  <div class="col-12 d-flex justify-content-center">
+      <app-producto-unitario [producto]="producto"></app-producto-unitario>
+  </div>
+</div>

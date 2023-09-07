@@ -1,0 +1,31 @@
+.carrito-venta {
+    height: 100vh;
+    position: absolute;
+    width: 35vw;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    background-color: rgb(244, 244, 244);
+    transform: translateX(35vw);
+    transition: all .5s;
+}
+
+.mostrar-carrito-venta {
+    transform: translateX(0vw);
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.pointer:active {
+    transform: scaleY(1.2);
+}
+
+.inline {
+    display: inline;
+}
+
+.f-right {
+    float: right;
+}

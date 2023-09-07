@@ -1,0 +1,50 @@
+<div class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded " style="max-width: 80vw; min-width: 50vw; min-height: 60vh;" *ngIf="vistaLista">
+    <div class="card-body">
+        <h4 class="text-center">Nuevo Producto</h4>
+        <hr>
+        <form>
+            <div class="mb-3">
+                <label for="imagen" class="form-label">
+                    <b>
+                        Imagen
+                    </b>
+                </label>
+                <input name="imagen" type="text" class="form-control" id="imagen"  [(ngModel)]="producto['imagen']">              
+            </div>
+
+            <div class="mb-3">
+                <label for="cliente" class="form-label">
+                    <b>
+                        Tipo Producto
+                    </b>
+                </label>
+                <ng2-completer name="tipo_producto" [inputClass]="'form-control'" class="" [(ngModel)]="producto['tipo_producto']" [datasource]="producto['tipo_productos']" [minSearchLength]="0"></ng2-completer>
+            </div>
+
+            <div class="mb-3">
+                <label for="nombre" class="form-label">
+                    <b>
+                        Nombre
+                    </b>
+                </label>
+                <input name="nombre" type="text" class="form-control" id="nombre"  [(ngModel)]="producto['nombre']" >              
+            </div>
+
+            <div class="mb-3">
+                <label for="precio" class="form-label">
+                    <b>
+                        Precio
+                    </b>
+                </label>
+                <input name="precio" type="text" class="form-control" id="precio"  [(ngModel)]="producto['precio']" >              
+            </div>
+
+
+            <div class="col-12 text-center">
+                <button (click)="ingresar()" type="submit" class="btn btn-secondary">
+                    <b>Ingresar</b>
+                </button>
+            </div>
+          </form>
+    </div>
+</div>

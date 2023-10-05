@@ -1,9 +1,11 @@
 <div class="container">
-    <small (click)="volver()" class="cursor-pointer">Volver</small>
 
-    <h6 class="text-center">DETALLES VENTA</h6>
+    <app-sub-navbar [items]="menu" (cambiarPestania)="cambiandoPestania($event)"></app-sub-navbar>
 
-    <div class="row">
+    <!-- <h6 class="text-center">DETALLES VENTA</h6> -->
+
+    <div class="row p-4" *ngIf="vistas['Ingresar Nuevo Paso']">
+
         <div class="col-12">
             
             <div class="mb-3">
@@ -15,6 +17,7 @@
                 <ng2-completer name="paso" [inputClass]="'form-control'" [(ngModel)]="venta['pasoSeleccionadoEnCurso']" [datasource]="venta['pasos_estandar']" [minSearchLength]="0">                    
                 </ng2-completer>
             </div>
+            
         </div>
 
         <div class="col-12">
@@ -25,7 +28,7 @@
                         Orden
                     </b>
                 </label>
-                <input type="number" class="form-control" name="ordinalidad" [(ngModel)]="venta['ordinalidadPaso']" id="ordinalidad">
+                <input disabled type="number" class="form-control" name="ordinalidad" [(ngModel)]="venta['ordinalidadPaso']" id="ordinalidad">
             </div>
         </div>
 
@@ -33,6 +36,18 @@
         <div class="col-12">
             <button class="btn btn-primary" (click)="ingresar()">Ingresar</button>
         </div>
+
     </div>
+
+
+    <div class="row p-4" *ngIf="vistas['Acciones']">
+        <h3>Acciones</h3>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur error optio inventore cumque? Fuga saepe suscipit nisi repudiandae, vel corporis, dolorem assumenda repellat et, id sed deserunt cum tenetur fugiat.
+    </div>
+
+    <div class="row p-4" *ngIf="vistas['Visualizar Pasos']">
+       <app-gestion-pasos *ngIf="venta['pasosEstandarHashMapByNombre']" [venta]="venta"></app-gestion-pasos>
+    </div>
+
 
 </div>

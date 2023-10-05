@@ -10,7 +10,7 @@ import { UtilsService } from 'src/app/services/utils.service';
 })
 export class ListarVentasComponent implements OnInit{
   public ventas: any;
-  public subnavegacion: any = subNavegacion;
+  public subnavegacion: any = JSON.parse(JSON.stringify(subNavegacion));
   public venta: any;
   constructor(private ventasService: VentaService, private utils: UtilsService) {}
   async ngOnInit(): Promise<void> {
@@ -35,6 +35,10 @@ export class ListarVentasComponent implements OnInit{
     } catch (error) {
       console.error(`ListarVentasComponent.subNavegar: error `, {error});
     }
+  }
+
+  volver() {
+    this.subNavegar('listado')
   }
 
 }

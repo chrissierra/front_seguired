@@ -8,7 +8,7 @@ import { UtilsService } from 'src/app/services/utils.service';
   styleUrls: ['./ventas.component.scss']
 })
 export class VentasComponent {
-  public subnavegacion: any = subNavegacion;
+  public subnavegacion: any = JSON.parse(JSON.stringify(subNavegacion));
   constructor(private utils: UtilsService) {}
   subNavegar(donde: string) {
     try {    

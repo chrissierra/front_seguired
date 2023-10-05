@@ -1,0 +1,22 @@
+<div class="container">
+    
+    <!-- Header con SeguiRed -->
+    <app-header-seguired></app-header-seguired>
+    
+    <hr>
+
+    <!-- ERROR -->
+    <app-error *ngIf="error" [error]="error"></app-error>
+    
+    <!-- Header con EmpresaCliente -->
+    <app-header-usuario *ngIf="venta" [venta]="venta"></app-header-usuario>
+
+
+    <!-- Section con Comprador -->
+    <app-header-comprador *ngIf="venta" [venta]="venta" ></app-header-comprador>
+
+    <br>
+
+    <!-- Section con linea de pasos -->
+    <app-section-flujo-pasos *ngIf="venta" [venta]="venta"></app-section-flujo-pasos>
+</div>

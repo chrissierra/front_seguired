@@ -41,7 +41,7 @@ export class VentaService {
       const lista_cantidades = venta.carritoVenta.productosCarrito.map((v:any)=> ({producto_id: v.id, cantidad: v.cantidad, subtotal: v.subtotal}));
       const total = venta.carritoVenta.total;
       const body = {
-        venta: {cliente_id, usuario_id: usuario.id, total},
+        venta: {cliente_id, usuario_id: usuario.id, total, estado: 'CREADA'},
         lista_productos,
         lista_cantidades,
         entrega: {fecha: venta.venta.fecha }
@@ -66,4 +66,19 @@ export class VentaService {
       throw error;
     }
   }
+
+
+  async getVentaById(id: string) {
+    try {    
+      let url = `http://localhost:8000/api/ventas/{id}`;
+      url = url.replace(`{id}`, id);
+      const response = await lastValueFrom(this.http.get(url));
+      console.log(`[VentaService.getVentaById:  ]`, {response});
+      return response;
+    } catch (error) {
+      console.error(`[ProductoService.getProductos: ERROR ]`, {error});
+      throw error;
+    }
+  }
+
 }

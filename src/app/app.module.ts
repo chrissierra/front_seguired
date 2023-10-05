@@ -29,6 +29,15 @@ import { ListarVentasComponent } from './pages/privado/ventas/listar-ventas/list
 import { UnitariaComponent } from './pages/privado/ventas/unitaria/unitaria.component';
 import { ConfiguracionComponent } from './pages/privado/configuracion/configuracion.component';
 import { PasosComponent } from './pages/privado/configuracion/pasos/pasos.component';
+import { SubNavbarComponent } from './pages/shared/privado/sub-navbar/sub-navbar.component';
+import { GestionPasosComponent } from './pages/privado/ventas/gestion-pasos/gestion-pasos.component';
+import { SeguimientoComponent } from './pages/publico/seguimiento/seguimiento.component';
+import { ErrorComponent } from './pages/publico/seguimiento/error/error.component';
+import { HeaderSeguiredComponent } from './pages/publico/seguimiento/header-seguired/header-seguired.component';
+import { HeaderUsuarioComponent } from './pages/publico/seguimiento/header-usuario/header-usuario.component';
+import { HeaderCompradorComponent } from './pages/publico/seguimiento/header-comprador/header-comprador.component';
+import { SectionFlujoPasosComponent } from './pages/publico/seguimiento/section-flujo-pasos/section-flujo-pasos.component';
+import { FlujoCompraComponent } from './pages/shared/flujo-compra/flujo-compra.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +60,16 @@ import { PasosComponent } from './pages/privado/configuracion/pasos/pasos.compon
     ListarVentasComponent,
     UnitariaComponent,
     ConfiguracionComponent,
-    PasosComponent
+    PasosComponent,
+    SubNavbarComponent,
+    GestionPasosComponent,
+    SeguimientoComponent,
+    ErrorComponent,
+    HeaderSeguiredComponent,
+    HeaderUsuarioComponent,
+    HeaderCompradorComponent,
+    SectionFlujoPasosComponent,
+    FlujoCompraComponent
   ],
   imports: [
     BrowserModule,

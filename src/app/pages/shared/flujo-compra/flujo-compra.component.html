@@ -1,0 +1,45 @@
+<div *ngIf="mostrarFlujo" class="container d-flex justify-content-center">
+
+    <ol class="stepper">
+        
+        <ng-container *ngFor="let paso of pasos" >
+
+            <li class="stepper-item" [ngClass]="{'complete': paso.en_curso }" >
+                <span class="stepper-counter"></span>
+                <a href="#" class="stepper-link">
+                    <span> {{ pasos['mapaPasosEstandar']['pasosEstandarHashMapById'][paso.id_paso_estandar] }} </span>
+                </a>
+                <span class="stepper-line"></span>
+            </li>
+        </ng-container>
+        
+        <!-- <li class="stepper-item complete">
+            <span class="stepper-counter"></span>
+            <a href="#" class="stepper-link">
+                <span>Dive into the world of CSS</span>
+            </a>
+            <span class="stepper-line"></span>
+        </li>
+        <li class="stepper-item">
+            <span class="stepper-counter"></span>
+            <a href="#" class="stepper-link">
+                <span>Fiddle with some JS</span>
+            </a>
+            <span class="stepper-line"></span>
+        </li>
+        <li class="stepper-item">
+            <span class="stepper-counter"></span>
+            <a href="#" class="stepper-link">
+                <span>Build with a SSG</span>
+            </a>
+            <span class="stepper-line"></span>
+        </li>
+        <li class="stepper-item">
+            <span class="stepper-counter"></span>
+            <a href="#" class="stepper-link">
+                <span>Use a headless CMS</span>
+            </a>
+            <span class="stepper-line"></span>
+        </li> -->
+    </ol>
+</div>

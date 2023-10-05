@@ -32,21 +32,6 @@ export class PasoService {
     }
   }
 
-
-  /* 
-  {
-  "paso": {
-      "id_usuario": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-      "tipo_producto_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-      "id_paso_estandar": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-      "caracteristicas": "string",
-      "ordinalidad": "string"
-    },
-    "entrega_id": {
-      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
-    }
-  }
-  */
   async ingresarPaso(paso: any, id: any) {
     try {
       const url = `http://localhost:8000/api/pasos`;
@@ -74,6 +59,39 @@ export class PasoService {
       return response;
     } catch (error) {
       console.error(`[PasoService.getPasosEstandar: ERROR ]`, {error});
+      throw error;
+    }
+  }
+
+  async updatePasoById(id: string, body: any) {
+    try {
+      console.log(`[Actualizando en: updatePasoById ]`, {id});
+      let url = `http://localhost:8000/api/pasos/{id}`;
+      url = url.replace(`{id}`, id);
+      body.caracteristicas = JSON.stringify(body.caracteristicas);
+      const response = await lastValueFrom(this.http.put(url, body));
+      console.log(`[PasoService.getPasosEstandar:  ]`, {response});
+      return response;
+    } catch (error) {
+      console.error(`[updatePasoById: ERROR ]`, {error});
+      throw error;
+    }
+  }
+
+  async setPasosEstandarHashById() {
+    try {
+      const pasosEstandar: any = await this.getPasosEstandar();
+      const mapas: any = {
+        pasosEstandarHashMapByNombre: {},
+        pasosEstandarHashMapById: {}
+      }
+      pasosEstandar.forEach( (v:any)=> {
+        mapas['pasosEstandarHashMapByNombre'][v.nombre] = v.id;
+        mapas['pasosEstandarHashMapById'][v.id] = v.nombre;
+      });
+      return mapas;
+    } catch (error) {
+      console.error(`[error: setPasosEstandarHashById]`, {error});
       throw error;
     }
   }

@@ -1,0 +1,14 @@
+<ul class="nav nav-tabs">
+
+    <li *ngFor="let item of items; let i = index" class="nav-item">
+        <a 
+        class="nav-link" 
+        aria-current="page"
+        (click)="onCambiarPestania(item, i )"
+        [ngClass]="{'active' : item.active}">
+        {{ item.nombre }}
+        </a>
+    </li>
+
+
+  </ul>

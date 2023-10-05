@@ -6,10 +6,13 @@ import { LoginComponent } from './pages/privado/login/login.component';
 import { VentasComponent } from './pages/privado/ventas/ventas.component';
 import { ProductosComponent } from './pages/privado/productos/productos.component';
 import { ConfiguracionComponent } from './pages/privado/configuracion/configuracion.component';
-
-
+import { SeguimientoComponent } from './pages/publico/seguimiento/seguimiento.component';
 
 const routes: Routes = [
+  {
+    path: 'seguimiento/:id',
+    component: SeguimientoComponent,
+  },
   {
     path: '',
     component: InicioComponent,
@@ -17,7 +20,7 @@ const routes: Routes = [
       {
         path: 'Dashboard',
         component: DashboardComponent,
-      }, 
+      },
       {
         path: 'ventas',
         component: VentasComponent,
@@ -34,9 +37,9 @@ const routes: Routes = [
         path: '**',
         component: LoginComponent
       }
-    
     ]
-  }
+  },
+  
 ];
 
 @NgModule({

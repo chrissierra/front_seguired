@@ -1,0 +1,29 @@
+
+<div class="container p-4 mb-4">
+    <div class="row">
+        <div class="col-12">
+            <ul class="nav nav-underline">
+
+                <li *ngFor="let nav of llavesSubnavegacion" class="nav-item">
+                    <a class="nav-link" aria-current="page"  (click)="subNavegar(nav)" 
+                    [ngClass]="{active: subnavegacion[nav] }">{{ nombresSubnavegacion[nav] }}</a>
+                </li>
+
+              </ul>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="row"  *ngIf="subnavegacion['listarClientes']">
+    <div class="col-12 d-flex justify-content-center">
+        <app-listar-clientes></app-listar-clientes>
+    </div>
+</div>
+
+<div class="row" *ngIf="subnavegacion['ingresarClientes']">
+  <div class="col-12 d-flex justify-content-center" >
+    <app-ingresar-cliente></app-ingresar-cliente>
+  </div>
+</div>

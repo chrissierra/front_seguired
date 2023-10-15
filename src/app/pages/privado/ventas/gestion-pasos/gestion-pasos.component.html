@@ -1,5 +1,11 @@
 <div class="card">
     <h5 class="text-center">Gestión Pasos</h5>
+
+    <h6 class="p-4 text-center" *ngIf="errores">
+        <b>
+            {{ errores }}
+        </b>
+    </h6>
     
     <div *ngIf="mostrarPasos" class="row">
         <div class="col-12">
@@ -20,6 +26,8 @@
                     <span *ngIf="!paso.en_curso" class="badge rounded-pill" [ngClass]="estadosDeLosPasos[paso.caracteristicas.estado].clase" >
                         {{ estadosDeLosPasos[paso.caracteristicas.estado].texto }}
                     </span>
+
+                   
                 
                 </li>
               </ol>

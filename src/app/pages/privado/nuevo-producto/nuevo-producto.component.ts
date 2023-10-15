@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ProductoService } from 'src/app/services/producto.service';
 import { TipoProductoService } from 'src/app/services/tipo-producto.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { TipoProductoService } from 'src/app/services/tipo-producto.service';
 export class NuevoProductoComponent {
   public producto: any = {nombre: '', mapa_tipo_objetos: {}};
   public vistaLista: boolean = false;
-  constructor(private tipoProductoService: TipoProductoService) {}
+  constructor(private tipoProductoService: TipoProductoService, private productoService: ProductoService) {}
   async ngOnInit(): Promise<void> {
     try {
       this.vistaLista = true;
@@ -26,8 +27,19 @@ export class NuevoProductoComponent {
   ingresar() {
     try {
       console.log(`[ingresar]`, {producto: this.producto});
+      const response = this.productoService.insertarProducto(this.producto);
+      console.log(``, {response})
     } catch (error) {
       console.error(`[NuevoProductoComponent.ingresar Error]`, {error})
+    }
+  }
+
+  async onSubmitImagen(resp: any) {
+    try {
+      const {fileLocation} = resp;
+      this.producto.imagen = fileLocation;
+    } catch (error) {
+      console.error(error)
     }
   }
 }

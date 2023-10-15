@@ -9,7 +9,8 @@
                         Imagen
                     </b>
                 </label>
-                <input name="imagen" type="text" class="form-control" id="imagen"  [(ngModel)]="producto['imagen']">              
+                <!-- <input name="imagen" type="text" class="form-control" id="imagen"  [(ngModel)]="producto['imagen']">   -->
+                <app-image-uploader (onSubmitImagen)="onSubmitImagen($event)" [labelSubida]="''"></app-image-uploader>         
             </div>
 
             <div class="mb-3">

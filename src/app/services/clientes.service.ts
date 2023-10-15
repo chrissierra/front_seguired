@@ -22,6 +22,19 @@ export class ClientesService {
     }
   }
 
+  async insertarCliente(cliente: any) {
+    try {    
+      let url = `http://localhost:8000/api/clientes/`;
+      const usuario = JSON.parse(localStorage.getItem('usuario')!);
+      cliente.usuario_id = usuario.id;
+      const response = await lastValueFrom(this.http.post(url, cliente));
+      return response;
+    } catch (error) {
+      console.error(`[ClientesService.insertarCliente: ERROR ]`, {error});
+      throw error;
+    }
+  }
+
   setClientes(clientes: any) {
     try {
       // const clientes = structuredClone(this.clientes);

@@ -4,6 +4,8 @@ import { UtilsService } from 'src/app/services/utils.service';
 import { subNavegacion } from './nueva-venta.enum';
 import { Observable } from 'rxjs';
 import { VentaService } from 'src/app/services/venta.service';
+import { ERRORES_NUEVA_VENTA } from './nueva-venta.errores';
+import { ErroresService } from 'src/app/services/errores.service';
 
 @Component({
   selector: 'app-nueva-venta',
@@ -18,15 +20,25 @@ export class NuevaVentaComponent implements OnInit {
   public productosSeleccionados: any = [];
   public carritoVenta: any;
   public clientes: any = {};
-  constructor(public clientesService: ClientesService, private utils: UtilsService, private ventaService: VentaService) {}
+  public error: any;
+  constructor(public clientesService: ClientesService, private utils: UtilsService, private ventaService: VentaService, private errorService: ErroresService) {}
+
   async ngOnInit(): Promise<void> {
     try {
-      this.clientes['todos'] = await this.clientesService.getClientes();
-      this.clientes['by_rut'] = await this.clientesService.setClientes(this.clientes['todos']);      
+      await this.obtenerClientes();
       this.venta['clientes'] = this.clientes['todos'].map( (v: any) => v.rut );
       this.vistaLista = true;
-    } catch (error) {
-      console.error(`[NuevaVentaComponent : Error ]`, {error});
+    } catch (e) {
+      this.errorService.catchingError(e)
+    }
+  }
+
+  async obtenerClientes() {
+    try {
+      this.clientes['todos'] = await this.clientesService.getClientes();
+      this.clientes['by_rut'] = await this.clientesService.setClientes(this.clientes['todos']);
+    } catch (e) {
+      this.errorService.setError(ERRORES_NUEVA_VENTA.ERROR_OBTENIENDO_CLIENTES, e);
     }
   }
 

@@ -1,0 +1,70 @@
+<div class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded " style="max-width: 80vw; min-width: 50vw; min-height: 60vh;" >
+    <div class="card-body">
+        <h4 class="text-center">Nuevo cliente</h4>
+        <hr>
+        <form>
+            <div class="mb-3">
+                <label for="nombre" class="form-label">
+                    <b>
+                        Nombre
+                    </b>
+                </label>
+                <input name="nombre" type="text" class="form-control" id="nombre"  [(ngModel)]="cliente['nombre']">              
+            </div>
+
+
+            <div class="mb-3">
+                <label for="rut" class="form-label">
+                    <b>
+                        Rut
+                    </b>
+                </label>
+                <input name="rut" type="text" class="form-control" id="rut"  [(ngModel)]="cliente['rut']" >              
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">
+                    <b>
+                        Email
+                    </b>
+                </label>
+                <input name="email" type="email" class="form-control" id="email"  [(ngModel)]="cliente['email']" >              
+            </div>
+
+
+            <div class="mb-3">
+                <label for="direccion" class="form-label">
+                    <b>
+                        Direccion
+                    </b>
+                </label>
+                <input name="direccion" type="text" class="form-control" id="direccion"  [(ngModel)]="cliente['direccion']" >              
+            </div>
+
+            <div class="mb-3">
+                <label for="latitud" class="form-label">
+                    <b>
+                        Latitud
+                    </b>
+                </label>
+                <input name="latitud" type="text" class="form-control" id="latitud"  [(ngModel)]="cliente['latitud']" >              
+            </div>
+
+            <div class="mb-3">
+                <label for="longitud" class="form-label">
+                    <b>
+                        Longitud
+                    </b>
+                </label>
+                <input name="longitud" type="text" class="form-control" id="longitud"  [(ngModel)]="cliente['longitud']" >              
+            </div>
+
+
+            <div class="col-12 text-center">
+                <button (click)="ingresar()" type="submit" class="btn btn-secondary">
+                    <b>Ingresar</b>
+                </button>
+            </div>
+          </form>
+    </div>
+</div>

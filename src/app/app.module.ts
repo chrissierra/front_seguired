@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InicioComponent } from './pages/privado/inicio/inicio.component';
@@ -38,6 +38,15 @@ import { HeaderUsuarioComponent } from './pages/publico/seguimiento/header-usuar
 import { HeaderCompradorComponent } from './pages/publico/seguimiento/header-comprador/header-comprador.component';
 import { SectionFlujoPasosComponent } from './pages/publico/seguimiento/section-flujo-pasos/section-flujo-pasos.component';
 import { FlujoCompraComponent } from './pages/shared/flujo-compra/flujo-compra.component';
+import { MiCuentaComponent } from './pages/privado/configuracion/mi-cuenta/mi-cuenta.component';
+import { ImageUploaderComponent } from './shared/components/image-uploader/image-uploader.component';
+import { ClientesComponent } from './pages/privado/clientes/clientes.component';
+import { ListarClientesComponent } from './pages/privado/clientes/listar-clientes/listar-clientes.component';
+import { ClienteComponent } from './pages/privado/clientes/cliente/cliente.component';
+import { IngresarClienteComponent } from './pages/privado/clientes/ingresar-cliente/ingresar-cliente.component';
+import { EditarClienteComponent } from './pages/privado/clientes/editar-cliente/editar-cliente.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,12 +78,20 @@ import { FlujoCompraComponent } from './pages/shared/flujo-compra/flujo-compra.c
     HeaderUsuarioComponent,
     HeaderCompradorComponent,
     SectionFlujoPasosComponent,
-    FlujoCompraComponent
+    FlujoCompraComponent,
+    MiCuentaComponent,
+    ImageUploaderComponent,
+    ClientesComponent,
+    ListarClientesComponent,
+    ClienteComponent,
+    IngresarClienteComponent,
+    EditarClienteComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     Ng2CompleterModule

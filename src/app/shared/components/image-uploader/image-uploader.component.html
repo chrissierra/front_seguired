@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-12">
+        
+        <form [formGroup]="formularioSubidaImagenes" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="file">{{ labelSubida }} </label>
+              <input type="file" id="file" (change)="onFileChange($event)" class="form-control" required>
+            </div>
+            <button *ngIf="isSubmitUsado" type="submit" class="btn btn-primary">Actualizar Logo</button>
+        </form>
+
+    </div>
+</div>

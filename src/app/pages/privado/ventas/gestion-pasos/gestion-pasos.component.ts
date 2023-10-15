@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { PasoService } from 'src/app/services/paso.service';
 import { UtilsService } from 'src/app/services/utils.service';
-import { ESTADOS, NOMBRE_ESTADOS } from './gestion-pasos.constant';
+import { ERRORES_GESTION_PASOS, ESTADOS, NOMBRE_ESTADOS } from './gestion-pasos.constant';
 
 @Component({
   selector: 'app-gestion-pasos',
@@ -15,6 +15,7 @@ export class GestionPasosComponent implements OnInit, AfterViewInit {
   pasosEstandar: any;
   mostrarPasos: boolean = false;
   estadosDeLosPasos: any = ESTADOS;
+  errores: any;
   constructor(private pasoService: PasoService, private util: UtilsService) {}
 
   ngAfterViewInit(): void {}
@@ -39,6 +40,7 @@ export class GestionPasosComponent implements OnInit, AfterViewInit {
         return paso;
       });
       if(!estaInicializado) {
+        if(!this.pasos[0]) throw ERRORES_GESTION_PASOS.SIN_PASOS_INGRESADOS;
         this.pasos[0].en_curso = true;
         this.pasoService.updatePasoById(this.pasos[0].id, this.pasos[0]);
         this.setPasos();
@@ -55,7 +57,8 @@ export class GestionPasosComponent implements OnInit, AfterViewInit {
       this.setPasos();
       console.log(`[onInit]`, {venta: this.venta, pasos: this.pasos, pasosEstandarMap: this.pasosEstandar });
     } catch (error) {
-      console.error(`[GestionPasosComponent: OnInit: ERROR ]`, {error} )
+      this.errores = error;
+      console.error(`[GestionPasosComponent: OnInit: ERROR ]`, {error} );
     }
   }
 

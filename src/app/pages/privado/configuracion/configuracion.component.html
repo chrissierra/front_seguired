@@ -4,10 +4,12 @@
         <div class="col-12">
             <ul class="nav nav-underline">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page"  (click)="subNavegar('EditarPasosProductivos')">Configuracion</a>
+                  <a class="nav-link" aria-current="page"  (click)="subNavegar('EditarPasosProductivos')" 
+                  [ngClass]="{active: subnavegacion['EditarPasosProductivos'] }">Configuracion</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link"  (click)="subNavegar('miCuenta')">Mi cuenta</a>
+                  <a class="nav-link"  (click)="subNavegar('miCuenta')"
+                  [ngClass]="{active: subnavegacion['miCuenta'] }">Mi cuenta</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link"  (click)="subNavegar('password')">Password</a>
@@ -30,6 +32,6 @@
 
 <div class="row" *ngIf="subnavegacion['miCuenta']">
   <div class="col-12">
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem aliquid et commodi nostrum velit ratione repellendus totam autem consequuntur iusto neque consectetur, minus delectus laborum maiores animi explicabo? Magni, inventore.
+    <app-mi-cuenta></app-mi-cuenta>
   </div>
 </div>

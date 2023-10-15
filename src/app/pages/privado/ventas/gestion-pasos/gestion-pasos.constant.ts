@@ -10,3 +10,6 @@ export const ESTADOS = {
     [NOMBRE_ESTADOS.PENDIENTE]: { texto: 'Pendiente', clase: {'bg-warning' : true }}
 }
 
+export const ERRORES_GESTION_PASOS = {
+    SIN_PASOS_INGRESADOS: `No existe ningún paso ingresado asociado a esta venta. `
+}

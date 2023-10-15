@@ -7,7 +7,7 @@ import { subNavegacion } from './configuracion.enum';
   styleUrls: ['./configuracion.component.scss']
 })
 export class ConfiguracionComponent {
-  public subnavegacion: any = subNavegacion;
+  public subnavegacion: any = structuredClone(subNavegacion) ;
   constructor(private utils: UtilsService) {}
   subNavegar(donde: string) {
     try {    

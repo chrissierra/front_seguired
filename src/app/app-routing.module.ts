@@ -7,6 +7,7 @@ import { VentasComponent } from './pages/privado/ventas/ventas.component';
 import { ProductosComponent } from './pages/privado/productos/productos.component';
 import { ConfiguracionComponent } from './pages/privado/configuracion/configuracion.component';
 import { SeguimientoComponent } from './pages/publico/seguimiento/seguimiento.component';
+import { ClientesComponent } from './pages/privado/clientes/clientes.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
       {
         path: 'configuracion',
         component: ConfiguracionComponent,
+      },
+      {
+        path: 'clientes',
+        component: ClientesComponent,
       },
       {
         path: '**',
